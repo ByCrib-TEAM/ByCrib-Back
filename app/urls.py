@@ -10,13 +10,14 @@ from drf_spectacular.views import (
 from rest_framework.routers import DefaultRouter
 from uploader.router import router as uploader_router
 
-from core.views import UserViewSet, CategoriaViewSet, ProdutoViewSet
-
+from core.views import UserViewSet, CategoriaViewSet, ProdutoViewSet, CarrinhoViewSet, ItemCarrinhoViewSet
 router = DefaultRouter()
 
 router.register(r'usuarios', UserViewSet, basename='usuarios')
 router.register(r'categorias', CategoriaViewSet, basename='categorias')
 router.register(r'produtos', ProdutoViewSet, basename='produtos')
+router.register(r'carrinhos', CarrinhoViewSet, basename='carrinhos')
+router.register(r'itens-carrinho', ItemCarrinhoViewSet, basename='itens-carrinho')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
