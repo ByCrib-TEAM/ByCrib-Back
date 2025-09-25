@@ -54,6 +54,16 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:5173',
+    'https://bycrib-back-x7zl.onrender.com'
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://bycrib-back-x7zl.onrender.com"
+]
+
 ROOT_URLCONF = 'app.urls'
 
 TEMPLATES = [
