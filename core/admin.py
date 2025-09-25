@@ -56,3 +56,5 @@ admin.site.register(models.Categoria)
 admin.site.register(models.Produto)
 admin.site.register(models.Carrinho)
 admin.site.register(models.ItemCarrinho)
+admin.site.register(models.Marca)
+admin.site.site_header = "ByCrib Admin"

@@ -3,6 +3,13 @@ from django.db import models
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
     descricao = models.TextField(blank=True, null=True)
+    pai = models.ForeignKey(
+        "self",
+        on_delete=models.CASCADE,
+        related_name="subcategorias",
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return self.nome
