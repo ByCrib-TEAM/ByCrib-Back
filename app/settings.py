@@ -14,7 +14,7 @@ MODE = os.getenv('MODE')
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure')
-DEBUG = os.getenv('DEBUG', 'False')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',
@@ -120,27 +120,30 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # App Uploader settings
 MEDIA_ENDPOINT = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 FILE_UPLOAD_PERMISSIONS = 0o640
 
+# Cloudinary & MEDIA configuration
+CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
+STORAGES = {
+    'default': {
+        'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
+
+# Mantém URL local apenas para desenvolvimento
 if MODE == 'DEVELOPMENT':
     MY_IP = os.getenv('MY_IP', '127.0.0.1')
     MEDIA_URL = f'http://{MY_IP}:19003/media/'
 else:
     MEDIA_URL = '/media/'
-    CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STORAGES = {
-        'default': {
-            'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
-        },
-        'staticfiles': {
-            'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-        },
-    }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
