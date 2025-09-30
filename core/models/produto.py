@@ -1,8 +1,7 @@
-# loja/models/produto.py
 from django.db import models
-from uploader.models import Image
 from .categoria import Categoria
 from .marca import Marca
+from cloudinary.models import CloudinaryField
 
 class Produto(models.Model):
     nome = models.CharField(max_length=100)
@@ -21,14 +20,8 @@ class Produto(models.Model):
         null=True,
         blank=True
     )
-    imagem = models.ForeignKey(
-        Image,
-        related_name="+",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        default=None
-    )
+
+    imagem = CloudinaryField('image', blank=True, null=True)
 
     def __str__(self):
         return self.nome

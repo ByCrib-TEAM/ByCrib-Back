@@ -8,7 +8,6 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 from rest_framework.routers import DefaultRouter
-from uploader.router import router as uploader_router
 
 from core.views import UserViewSet, CategoriaViewSet, ProdutoViewSet, CarrinhoViewSet, ItemCarrinhoViewSet, MarcaViewSet
 router = DefaultRouter()
@@ -36,7 +35,4 @@ urlpatterns = [
     ),
     # API
     path('api/', include(router.urls)),
-    path("api/media/", include(uploader_router.urls))
 ]
-
-urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)

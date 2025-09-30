@@ -8,14 +8,33 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Define o modo de execução da aplicação
-MODE = os.getenv('MODE')
+MODE = os.getenv('MODE', 'PRODUCTION')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Configuração de banco de dados
+if MODE == 'DEVELOPMENT':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db_local.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.getenv('DATABASE_URL'),  # Supabase
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
+    }
+
+# Chave secreta e debug
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ['*']
+
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:8000',
@@ -29,15 +48,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary_storage',
     'cloudinary',
     'corsheaders',
     'django_extensions',
     'django_filters',
     'drf_spectacular',
     'rest_framework',
-    'uploader',
-    'core',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -84,17 +101,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-# Databases
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
-}
-
 # Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -111,42 +118,33 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
 LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# App Uploader settings
+# MEDIA settings
 MEDIA_ENDPOINT = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 FILE_UPLOAD_PERMISSIONS = 0o640
 
 # Cloudinary & MEDIA configuration
 CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
-STORAGES = {
-    'default': {
-        'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
-    },
-    'staticfiles': {
-        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-    },
-}
 
-# Mantém URL local apenas para desenvolvimento
+# Em produção usa Cloudinary, em desenvolvimento usa FileSystemStorage local
 if MODE == 'DEVELOPMENT':
     MY_IP = os.getenv('MY_IP', '127.0.0.1')
     MEDIA_URL = f'http://{MY_IP}:19003/media/'
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 else:
     MEDIA_URL = '/media/'
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SPECTACULAR_SETTINGS = {
@@ -158,8 +156,6 @@ SPECTACULAR_SETTINGS = {
 AUTH_USER_MODEL = 'core.User'
 
 REST_FRAMEWORK = {
-    # "DEFAULT_AUTHENTICATION_CLASSES": ("core.authentication.TokenAuthentication",),
-    # "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",),
     'DEFAULT_PAGINATION_CLASS': 'app.pagination.CustomPagination',
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'PAGE_SIZE': 10,
