@@ -1,3 +1,6 @@
+MODE = 'DEVELOPMENT' 
+MEDIA_URL = 'http://191.52.55.56:19003/media/' 
+DATABASES = {'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': PosixPath('/home/caetano.freitas/Documentos/ByCrib-Back/db_local.sqlite3')}}
 [
 {
   "model": "core.user",
