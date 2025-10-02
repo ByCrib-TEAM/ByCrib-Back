@@ -1,491 +1,6 @@
 [
 {
-  "model": "auth.permission",
-  "pk": 1,
-  "fields": {
-    "name": "Can add log entry",
-    "content_type": 1,
-    "codename": "add_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 2,
-  "fields": {
-    "name": "Can change log entry",
-    "content_type": 1,
-    "codename": "change_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 3,
-  "fields": {
-    "name": "Can delete log entry",
-    "content_type": 1,
-    "codename": "delete_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 4,
-  "fields": {
-    "name": "Can view log entry",
-    "content_type": 1,
-    "codename": "view_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 5,
-  "fields": {
-    "name": "Can add permission",
-    "content_type": 2,
-    "codename": "add_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 6,
-  "fields": {
-    "name": "Can change permission",
-    "content_type": 2,
-    "codename": "change_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 7,
-  "fields": {
-    "name": "Can delete permission",
-    "content_type": 2,
-    "codename": "delete_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 8,
-  "fields": {
-    "name": "Can view permission",
-    "content_type": 2,
-    "codename": "view_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 9,
-  "fields": {
-    "name": "Can add group",
-    "content_type": 3,
-    "codename": "add_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 10,
-  "fields": {
-    "name": "Can change group",
-    "content_type": 3,
-    "codename": "change_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 11,
-  "fields": {
-    "name": "Can delete group",
-    "content_type": 3,
-    "codename": "delete_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 12,
-  "fields": {
-    "name": "Can view group",
-    "content_type": 3,
-    "codename": "view_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 13,
-  "fields": {
-    "name": "Can add content type",
-    "content_type": 4,
-    "codename": "add_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 14,
-  "fields": {
-    "name": "Can change content type",
-    "content_type": 4,
-    "codename": "change_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 15,
-  "fields": {
-    "name": "Can delete content type",
-    "content_type": 4,
-    "codename": "delete_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 16,
-  "fields": {
-    "name": "Can view content type",
-    "content_type": 4,
-    "codename": "view_contenttype"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 17,
-  "fields": {
-    "name": "Can add session",
-    "content_type": 5,
-    "codename": "add_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 18,
-  "fields": {
-    "name": "Can change session",
-    "content_type": 5,
-    "codename": "change_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 19,
-  "fields": {
-    "name": "Can delete session",
-    "content_type": 5,
-    "codename": "delete_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 20,
-  "fields": {
-    "name": "Can view session",
-    "content_type": 5,
-    "codename": "view_session"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 21,
-  "fields": {
-    "name": "Can add Marca",
-    "content_type": 6,
-    "codename": "add_marca"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 22,
-  "fields": {
-    "name": "Can change Marca",
-    "content_type": 6,
-    "codename": "change_marca"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 23,
-  "fields": {
-    "name": "Can delete Marca",
-    "content_type": 6,
-    "codename": "delete_marca"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 24,
-  "fields": {
-    "name": "Can view Marca",
-    "content_type": 6,
-    "codename": "view_marca"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 25,
-  "fields": {
-    "name": "Can add Usuário",
-    "content_type": 7,
-    "codename": "add_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 26,
-  "fields": {
-    "name": "Can change Usuário",
-    "content_type": 7,
-    "codename": "change_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 27,
-  "fields": {
-    "name": "Can delete Usuário",
-    "content_type": 7,
-    "codename": "delete_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 28,
-  "fields": {
-    "name": "Can view Usuário",
-    "content_type": 7,
-    "codename": "view_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 29,
-  "fields": {
-    "name": "Can add Carrinho",
-    "content_type": 8,
-    "codename": "add_carrinho"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 30,
-  "fields": {
-    "name": "Can change Carrinho",
-    "content_type": 8,
-    "codename": "change_carrinho"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 31,
-  "fields": {
-    "name": "Can delete Carrinho",
-    "content_type": 8,
-    "codename": "delete_carrinho"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 32,
-  "fields": {
-    "name": "Can view Carrinho",
-    "content_type": 8,
-    "codename": "view_carrinho"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 33,
-  "fields": {
-    "name": "Can add Categoria",
-    "content_type": 9,
-    "codename": "add_categoria"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 34,
-  "fields": {
-    "name": "Can change Categoria",
-    "content_type": 9,
-    "codename": "change_categoria"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 35,
-  "fields": {
-    "name": "Can delete Categoria",
-    "content_type": 9,
-    "codename": "delete_categoria"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 36,
-  "fields": {
-    "name": "Can view Categoria",
-    "content_type": 9,
-    "codename": "view_categoria"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 37,
-  "fields": {
-    "name": "Can add Produto",
-    "content_type": 10,
-    "codename": "add_produto"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 38,
-  "fields": {
-    "name": "Can change Produto",
-    "content_type": 10,
-    "codename": "change_produto"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 39,
-  "fields": {
-    "name": "Can delete Produto",
-    "content_type": 10,
-    "codename": "delete_produto"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 40,
-  "fields": {
-    "name": "Can view Produto",
-    "content_type": 10,
-    "codename": "view_produto"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 41,
-  "fields": {
-    "name": "Can add Item do Carrinho",
-    "content_type": 11,
-    "codename": "add_itemcarrinho"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 42,
-  "fields": {
-    "name": "Can change Item do Carrinho",
-    "content_type": 11,
-    "codename": "change_itemcarrinho"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 43,
-  "fields": {
-    "name": "Can delete Item do Carrinho",
-    "content_type": 11,
-    "codename": "delete_itemcarrinho"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 44,
-  "fields": {
-    "name": "Can view Item do Carrinho",
-    "content_type": 11,
-    "codename": "view_itemcarrinho"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 1,
-  "fields": {
-    "app_label": "admin",
-    "model": "logentry"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 2,
-  "fields": {
-    "app_label": "auth",
-    "model": "permission"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 3,
-  "fields": {
-    "app_label": "auth",
-    "model": "group"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 4,
-  "fields": {
-    "app_label": "contenttypes",
-    "model": "contenttype"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 5,
-  "fields": {
-    "app_label": "sessions",
-    "model": "session"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 6,
-  "fields": {
-    "app_label": "core",
-    "model": "marca"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 7,
-  "fields": {
-    "app_label": "core",
-    "model": "user"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 8,
-  "fields": {
-    "app_label": "core",
-    "model": "carrinho"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 9,
-  "fields": {
-    "app_label": "core",
-    "model": "categoria"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 10,
-  "fields": {
-    "app_label": "core",
-    "model": "produto"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 11,
-  "fields": {
-    "app_label": "core",
-    "model": "itemcarrinho"
-  }
-},
-{
   "model": "core.user",
-  "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$1000000$xn8iD53NyP8rBbwwE95KAS$IPYvRONgX1E1Dc0J/O7kwgNGFQTYlGsrCFd4xYAu+u4=",
     "last_login": "2025-10-01T17:52:17.201Z",
@@ -497,40 +12,6 @@
     "is_staff": true,
     "groups": [],
     "user_permissions": []
-  }
-},
-{
-  "model": "core.categoria",
-  "pk": 5,
-  "fields": {
-    "nome": "Acessórios",
-    "descricao": "",
-    "pai": null
-  }
-},
-{
-  "model": "core.categoria",
-  "pk": 6,
-  "fields": {
-    "nome": "Bermudas",
-    "descricao": "",
-    "pai": null
-  }
-},
-{
-  "model": "core.marca",
-  "pk": 1,
-  "fields": {
-    "nome": "Sufgang",
-    "descricao": "-"
-  }
-},
-{
-  "model": "core.marca",
-  "pk": 2,
-  "fields": {
-    "nome": "Mad Enlatados",
-    "descricao": "-"
   }
 },
 {
@@ -557,6 +38,154 @@
     "categoria": 6,
     "marca": 2,
     "imagem": "image/upload/v1759342032/oyld2ungtdlsv4k4ahpz.png"
+  }
+},
+{
+  "model": "core.produto",
+  "pk": 3,
+  "fields": {
+    "nome": "MAD JERSEY ARTILHEIRO PRETO PRATA",
+    "descricao": "Jersey manga curta confeccionada em malha 100% poliéster e gráficos em sublimação total. Gola polo preta.",
+    "preco": "349.90",
+    "estoque": 3,
+    "categoria": 12,
+    "marca": 2,
+    "imagem": "image/upload/v1759415388/o2wlyuubyd0wowqkuddn.png"
+  }
+},
+{
+  "model": "core.produto",
+  "pk": 4,
+  "fields": {
+    "nome": "MINACCI CALÇA BASICS CINZA",
+    "descricao": "A linha Basic M representa a essência minimalista da Minacci: peças atemporais, versáteis e construídas com foco em qualidade e conforto. Cada item carrega a proposta da marca de unir o streetwear nacional à estética sportlife, com modelagens precisas e tecidos encorpados.\r\nA calça de moletom Basic traz um corte mais largo, com barra reta e estrutura solta, entregando liberdade total nos movimentos e uma presença marcante.\r\nIdeal para quem valoriza autenticidade, funcionalidade e estilo no dia a dia.",
+    "preco": "230.00",
+    "estoque": 7,
+    "categoria": 7,
+    "marca": 3,
+    "imagem": "image/upload/v1759416288/ojvz9ju5sfnokg70naqn.png"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 5,
+  "fields": {
+    "nome": "Acessórios",
+    "descricao": "",
+    "pai": null
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 6,
+  "fields": {
+    "nome": "Bermudas",
+    "descricao": "",
+    "pai": null
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 7,
+  "fields": {
+    "nome": "Calças",
+    "descricao": "-",
+    "pai": null
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 8,
+  "fields": {
+    "nome": "Moletom Capuz",
+    "descricao": "",
+    "pai": null
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 9,
+  "fields": {
+    "nome": "Casaco",
+    "descricao": "",
+    "pai": null
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 10,
+  "fields": {
+    "nome": "Bolsas",
+    "descricao": "",
+    "pai": 5
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 11,
+  "fields": {
+    "nome": "Cinzeiros",
+    "descricao": "",
+    "pai": 5
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 12,
+  "fields": {
+    "nome": "Camisetas",
+    "descricao": "-",
+    "pai": null
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 13,
+  "fields": {
+    "nome": "Polos",
+    "descricao": "-",
+    "pai": null
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 14,
+  "fields": {
+    "nome": "Moletom Crewneck",
+    "descricao": "-",
+    "pai": null
+  }
+},
+{
+  "model": "core.marca",
+  "pk": 1,
+  "fields": {
+    "nome": "Sufgang",
+    "descricao": "-"
+  }
+},
+{
+  "model": "core.marca",
+  "pk": 2,
+  "fields": {
+    "nome": "Mad Enlatados",
+    "descricao": "-"
+  }
+},
+{
+  "model": "core.marca",
+  "pk": 3,
+  "fields": {
+    "nome": "Minacci",
+    "descricao": "-"
+  }
+},
+{
+  "model": "core.marca",
+  "pk": 4,
+  "fields": {
+    "nome": "Nike",
+    "descricao": "Fundada em 1964 sempre teve como foco entregar o melhor para os melhores. Hoje a marca é referência em todos os esportes e na moda a nível global."
   }
 }
 ]
