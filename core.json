@@ -1,9 +1,10 @@
 [
 {
   "model": "core.user",
+  "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$1000000$xn8iD53NyP8rBbwwE95KAS$IPYvRONgX1E1Dc0J/O7kwgNGFQTYlGsrCFd4xYAu+u4=",
-    "last_login": "2025-10-01T17:52:17.201Z",
+    "last_login": "2025-10-03T11:49:47.140Z",
     "is_superuser": true,
     "passage_id": "",
     "email": "caetanopfreitas@gmail.com",
@@ -12,58 +13,6 @@
     "is_staff": true,
     "groups": [],
     "user_permissions": []
-  }
-},
-{
-  "model": "core.produto",
-  "pk": 1,
-  "fields": {
-    "nome": "TOY ART SOSA",
-    "descricao": "Boneco exclusivo feito em resina DLP (impressão 3D), garantindo detalhes precisos e acabamento de alta qualidade.",
-    "preco": "399.90",
-    "estoque": 3,
-    "categoria": 5,
-    "marca": 1,
-    "imagem": "image/upload/v1759341793/zvml6v3s1mf8862qcacl.png"
-  }
-},
-{
-  "model": "core.produto",
-  "pk": 2,
-  "fields": {
-    "nome": "MANDRAKE MALIGNO",
-    "descricao": "Bermuda Jeans confeccionada em tecido 100% algodão, dois bolsos frontais reforçados com rebite e dois bolsos traseiros comuns. Peça tingida e estampa á laser.",
-    "preco": "420.00",
-    "estoque": 4,
-    "categoria": 6,
-    "marca": 2,
-    "imagem": "image/upload/v1759342032/oyld2ungtdlsv4k4ahpz.png"
-  }
-},
-{
-  "model": "core.produto",
-  "pk": 3,
-  "fields": {
-    "nome": "MAD JERSEY ARTILHEIRO PRETO PRATA",
-    "descricao": "Jersey manga curta confeccionada em malha 100% poliéster e gráficos em sublimação total. Gola polo preta.",
-    "preco": "349.90",
-    "estoque": 3,
-    "categoria": 12,
-    "marca": 2,
-    "imagem": "image/upload/v1759415388/o2wlyuubyd0wowqkuddn.png"
-  }
-},
-{
-  "model": "core.produto",
-  "pk": 4,
-  "fields": {
-    "nome": "MINACCI CALÇA BASICS CINZA",
-    "descricao": "A linha Basic M representa a essência minimalista da Minacci: peças atemporais, versáteis e construídas com foco em qualidade e conforto. Cada item carrega a proposta da marca de unir o streetwear nacional à estética sportlife, com modelagens precisas e tecidos encorpados.\r\nA calça de moletom Basic traz um corte mais largo, com barra reta e estrutura solta, entregando liberdade total nos movimentos e uma presença marcante.\r\nIdeal para quem valoriza autenticidade, funcionalidade e estilo no dia a dia.",
-    "preco": "230.00",
-    "estoque": 7,
-    "categoria": 7,
-    "marca": 3,
-    "imagem": "image/upload/v1759416288/ojvz9ju5sfnokg70naqn.png"
   }
 },
 {
@@ -106,7 +55,7 @@
   "model": "core.categoria",
   "pk": 9,
   "fields": {
-    "nome": "Casaco",
+    "nome": "Jaqueta",
     "descricao": "",
     "pai": null
   }
@@ -186,6 +135,134 @@
   "fields": {
     "nome": "Nike",
     "descricao": "Fundada em 1964 sempre teve como foco entregar o melhor para os melhores. Hoje a marca é referência em todos os esportes e na moda a nível global."
+  }
+},
+{
+  "model": "core.marca",
+  "pk": 5,
+  "fields": {
+    "nome": "Patta",
+    "descricao": "A Patta foi fundada por Edson Sabajo e Guillaume ‘Gee’ Schmidt. Ambos foram fundamentais para a comunidade holandesa de hip-hop e vida noturna nos anos 90 e início dos anos 2000 - Edson como DJ e Gee como MC. O nome da marca vem de uma gíria para “tênis” – uma homenagem à herança surinamesa dos fundadores."
+  }
+},
+{
+  "model": "core.marca",
+  "pk": 6,
+  "fields": {
+    "nome": "MVRK",
+    "descricao": "Idealizada no coração de São Paulo em 2014. Inspirada pelo skate, graffiti, pixo, música e por toda forma de contracultura que transborda na cidade. Expressamos nossas opiniões através de nossas peças. Nos empenhamos para desenvolver produtos de alta qualidade em pequenas tiragens, e com identidade única."
+  }
+},
+{
+  "model": "core.marca",
+  "pk": 7,
+  "fields": {
+    "nome": "Exclusiviist",
+    "descricao": "Vindo de uma vida difícil no norte de Atlanta, Yego chegou ao Brasil em 2016 com apenas 50 dólares no bolso, alimentando o desejo de uma vida como rapper. Enquanto trabalhava na arte da capa do single 1OF1 ele criou um símbolo marcante que estampou em um moletom. Ao compartilhar essa foto nas redes sociais, ela rapidamente se tornou viral, consolidando-se como sua marca oficial."
+  }
+},
+{
+  "model": "core.produto",
+  "pk": 1,
+  "fields": {
+    "nome": "SUFGANG TOY ART SOSA",
+    "descricao": "Boneco exclusivo feito em resina DLP (impressão 3D), garantindo detalhes precisos e acabamento de alta qualidade.",
+    "preco": "399.90",
+    "estoque": 3,
+    "categoria": 5,
+    "marca": 1,
+    "imagem": "image/upload/v1759341793/zvml6v3s1mf8862qcacl.png"
+  }
+},
+{
+  "model": "core.produto",
+  "pk": 2,
+  "fields": {
+    "nome": "MAD MANDRAKE MALIGNO",
+    "descricao": "Bermuda Jeans confeccionada em tecido 100% algodão, dois bolsos frontais reforçados com rebite e dois bolsos traseiros comuns. Peça tingida e estampa á laser.",
+    "preco": "420.00",
+    "estoque": 4,
+    "categoria": 6,
+    "marca": 2,
+    "imagem": "image/upload/v1759342032/oyld2ungtdlsv4k4ahpz.png"
+  }
+},
+{
+  "model": "core.produto",
+  "pk": 3,
+  "fields": {
+    "nome": "MAD JERSEY ARTILHEIRO PRETO PRATA",
+    "descricao": "Jersey manga curta confeccionada em malha 100% poliéster e gráficos em sublimação total. Gola polo preta.",
+    "preco": "349.90",
+    "estoque": 3,
+    "categoria": 12,
+    "marca": 2,
+    "imagem": "image/upload/v1759415388/o2wlyuubyd0wowqkuddn.png"
+  }
+},
+{
+  "model": "core.produto",
+  "pk": 4,
+  "fields": {
+    "nome": "MINACCI CALÇA BASICS CINZA",
+    "descricao": "A linha Basic M representa a essência minimalista da Minacci: peças atemporais, versáteis e construídas com foco em qualidade e conforto. Cada item carrega a proposta da marca de unir o streetwear nacional à estética sportlife, com modelagens precisas e tecidos encorpados.\r\nA calça de moletom Basic traz um corte mais largo, com barra reta e estrutura solta, entregando liberdade total nos movimentos e uma presença marcante.\r\nIdeal para quem valoriza autenticidade, funcionalidade e estilo no dia a dia.",
+    "preco": "230.00",
+    "estoque": 7,
+    "categoria": 7,
+    "marca": 3,
+    "imagem": "image/upload/v1759416288/ojvz9ju5sfnokg70naqn.png"
+  }
+},
+{
+  "model": "core.produto",
+  "pk": 5,
+  "fields": {
+    "nome": "PATTA CINZEIRO SCRIPT BURGUNDY WHITE White",
+    "descricao": "À medida que nos aventuramos cada vez mais em acessórios para casa, apresentamos o Cinzeiro Patta Script Logo. Um toque sutil para qualquer ambiente, com o logotipo Patta Script em cerâmica branca fundido ao corpo em cerâmica bordô, trará sensibilidades street sem esquecer o importante toque suave.",
+    "preco": "449.90",
+    "estoque": 5,
+    "categoria": 11,
+    "marca": 5,
+    "imagem": "image/upload/v1759493241/nsz35gzdlzvyv1b8tsob.png"
+  }
+},
+{
+  "model": "core.produto",
+  "pk": 6,
+  "fields": {
+    "nome": "MVRK BOLSA LATERAL",
+    "descricao": "• Preto\r\n• Tecido 100% Algodão / Sarja\r\n• Etiqueta de Borracha\r\n• Puxador de Níquel\r\n• Etiqueta Interna",
+    "preco": "349.90",
+    "estoque": 3,
+    "categoria": 10,
+    "marca": 6,
+    "imagem": "image/upload/v1759493406/d9rg76ockyxyxbyyczdk.png"
+  }
+},
+{
+  "model": "core.produto",
+  "pk": 7,
+  "fields": {
+    "nome": "1OF1 CREWNECK H1GH ROLLERS BLACK",
+    "descricao": "Esse moletom da 1of1 é puro fogo — literalmente e no estilo. Em preto absoluto, ele traz como destaque uma estampa central com dois dados escuros marcados com “1of1” em todas as faces, cercados por chamas vibrantes em tons de roxo e verde neon. O fundo estrelado adiciona uma atmosfera quase cósmica à arte, como se os dados estivessem em combustão no universo. Nas mangas, a palavra “1of1” aparece em grafismos que ecoam as mesmas cores da estampa, criando uma continuidade visual poderosa.",
+    "preco": "269.90",
+    "estoque": 6,
+    "categoria": 14,
+    "marca": 7,
+    "imagem": "image/upload/v1759493808/ytrzvtj7hiaq2r5tj0z5.png"
+  }
+},
+{
+  "model": "core.produto",
+  "pk": 8,
+  "fields": {
+    "nome": "SUFGANG TRACK 3M BLACK",
+    "descricao": "Jaqueta confeccionada em tecido plano de poliéster, resistente a água. O forro em um tecido para dar conforto e estrutura para peça. Modelagem reta e ampla, gola alta, com capuz, bolsos com fechamento em zíper selado, aplicação de viés refletivo e manga raglan ressaltando a costura diagonal que se estende desde as axilas até as mangas, punhos e cós com elástico.\r\n\r\n- Composição: 100% Poliéster.\r\n\r\n- Estampa logo SUFGANG bordado.\r\n\r\n- Modelagem Oversized",
+    "preco": "499.90",
+    "estoque": 2,
+    "categoria": 9,
+    "marca": 1,
+    "imagem": "image/upload/v1759494064/pbqwtbpqtkfnr4gjvrsu.png"
   }
 }
 ]
