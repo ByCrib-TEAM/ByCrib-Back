@@ -12,6 +12,9 @@ from rest_framework.routers import DefaultRouter
 from core.views import UserViewSet, CategoriaViewSet, ProdutoViewSet, CarrinhoViewSet, ItemCarrinhoViewSet, MarcaViewSet
 router = DefaultRouter()
 
+carrinho_list = CarrinhoViewSet.as_view({'get': 'list'})
+adicionar_item = CarrinhoViewSet.as_view({'post': 'create_item'})
+
 router.register(r'usuarios', UserViewSet, basename='usuarios')
 router.register(r'categorias', CategoriaViewSet, basename='categorias')
 router.register(r'produtos', ProdutoViewSet, basename='produtos')
@@ -35,4 +38,6 @@ urlpatterns = [
     ),
     # API
     path('api/', include(router.urls)),
+    path('api/carrinho/', carrinho_list, name='carrinho'),
+    path('api/carrinho/adicionar/', adicionar_item, name='adicionar_item')
 ]
