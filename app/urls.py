@@ -34,5 +34,5 @@ urlpatterns = [
         name='redoc',
     ),
     # API
-    path('api/', include(router.urls)),
+    path('api/', include(router.urls))
 ]
