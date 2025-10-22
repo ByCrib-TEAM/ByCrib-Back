@@ -13,7 +13,15 @@ class Carrinho(models.Model):
 
     def __str__(self):
         return f'Carrinho #{self.id} - Usuário: {self.usuario}'
+
     class Meta:
         verbose_name = 'Carrinho'
         verbose_name_plural = 'Carrinhos'
         ordering = ['-criado_em']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['usuario'],
+                condition=models.Q(finalizado=False),
+                name='unique_carrinho_ativo_por_usuario'
+            )
+        ]
