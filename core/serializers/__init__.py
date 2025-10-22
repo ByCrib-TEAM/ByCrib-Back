@@ -1,4 +1,4 @@
-from .user import UserSerializer
+from .user import UserWriteSerializer, UserReadSerializer
 from .categoria import CategoriaSerializer
 from .produto import ProdutoSerializer
 from .carrinho import CarrinhoSerializer, ItemCarrinhoSerializer

@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from datetime import timedelta
 
 import dj_database_url
 from dotenv import load_dotenv
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
     'core'
 ]
 
@@ -162,11 +164,19 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
     'PAGE_SIZE': 10,
 }
 
-PASSAGE_APP_ID = os.getenv('PASSAGE_APP_ID', 'app_id')
-PASSAGE_API_KEY = os.getenv('PASSAGE_API_KEY', 'api_key')
-PASSAGE_AUTH_STRATEGY = 2
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=int(os.getenv("ACCESS_TOKEN_LIFETIME_MINUTES", 15))),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=int(os.getenv("REFRESH_TOKEN_LIFETIME_DAYS", 1))),
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": os.getenv("JWT_SIGNING_KEY", SECRET_KEY),
+    "AUTH_HEADER_TYPES": ("Bearer",),
+}
+
 
 print(f'{MODE = } \n{MEDIA_URL = } \n{DATABASES = }')
