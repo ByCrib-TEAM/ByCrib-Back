@@ -164,7 +164,45 @@ summary = "Foreign Function Interface for Python calling C code."
 groups = ["default"]
 marker = "platform_python_implementation != \"PyPy\""
 dependencies = [
-    "pycparser",
+    "pycparser",>>>>>>> dev
+556
+name = "drf-spectacular"
+557
+version = "0.28.0"
+558
+requires_python = ">=3.7"
+559
+summary = "Sane and flexible OpenAPI 3 schema generation for Django REST framework"
+560
+groups = ["default"]
+561
+dependencies = [
+562
+    "Django>=2.2",
+563
+    "PyYAML>=5.1",
+564
+    "djangorestframework>=3.10.3",
+565
+    "inflection>=0.3.1",
+566
+    "jsonschema>=2.6.0",
+567
+    "typing-extensions; python_version < \"3.10\"",
+568
+    "uritemplate>=2.0.0",
+569
+]
+570
+files = [
+571
+    {file = "drf_spectacular-0.28.0-py3-none-any.whl", hash = "sha256:856e7edf1056e49a4245e87a61e8da4baff46c83dbc25be1da2df77f354c7cb4"},
+572
+    {file = "drf_spectacular-0.28.0.tar.gz", hash = "sha256:2c778a47a40ab2f5078a7c42e82baba07397bb35b074ae4680721b2805943061"},
+573
+]
+574
+
 ]
 files = [
     {file = "cffi-1.17.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:df8b1c11f177bc2313ec4b2d46baec87a5f3e71fc8b45dab2ee7cae86d9aba14"},
