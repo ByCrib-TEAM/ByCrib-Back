@@ -2,6 +2,8 @@ from rest_framework import serializers
 from core.models import User
 from datetime import date
 from django.contrib.auth.models import Group
+from rest_framework import serializers
+from core.models import User
 
 
 class UserWriteSerializer(serializers.ModelSerializer):

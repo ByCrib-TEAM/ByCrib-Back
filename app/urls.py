@@ -16,7 +16,7 @@ from drf_spectacular.views import (
 )
 from rest_framework.routers import DefaultRouter
 
-from core.views import UserViewSet, CategoriaViewSet, ProdutoViewSet, CarrinhoViewSet, ItemCarrinhoViewSet, MarcaViewSet
+from core.views import UserViewSet, CategoriaViewSet, ProdutoViewSet, CarrinhoViewSet, ItemCarrinhoViewSet, MarcaViewSet, CompraViewSet
 router = DefaultRouter()
 
 router.register(r'usuarios', UserViewSet, basename='usuarios')
@@ -25,6 +25,7 @@ router.register(r'produtos', ProdutoViewSet, basename='produtos')
 router.register(r'carrinhos', CarrinhoViewSet, basename='carrinhos')
 router.register(r'itens-carrinho', ItemCarrinhoViewSet, basename='itens-carrinho')
 router.register(r'marcas', MarcaViewSet, basename='marcas')
+router.register(r'compras', CompraViewSet, basename='compras')
 
 
 urlpatterns = [
@@ -56,10 +57,5 @@ urlpatterns = [
     path(
         'api/token/verify/',
           TokenVerifyView.as_view(), name='token_verify'
-    ),
-
-
-    
-
-
+    )
 ]
