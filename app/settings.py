@@ -1,20 +1,14 @@
 import os
 from pathlib import Path
 from datetime import timedelta
-
 import dj_database_url
 from dotenv import load_dotenv
 
-# Carrega as variáveis de ambiente do arquivo .env
 load_dotenv()
 
-# Define o modo de execução da aplicação
 MODE = os.getenv('MODE', 'PRODUCTION')
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Configuração de banco de dados
 if MODE == 'DEVELOPMENT':
     DATABASES = {
         'default': {
@@ -25,23 +19,30 @@ if MODE == 'DEVELOPMENT':
 else:
     DATABASES = {
         'default': dj_database_url.config(
-            default=os.getenv('DATABASE_URL'),  # Supabase
+            default=os.getenv('DATABASE_URL'),
             conn_max_age=600,
             conn_health_checks=True,
         )
     }
 
-# Chave secreta e debug
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ['*']
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:5173',
     'http://localhost:3000',
     'http://localhost:8000',
+    'https://bycrib-back-x7zl.onrender.com'
 ]
 
-# Application definition
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
+    'https://bycrib-back-x7zl.onrender.com'
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -57,7 +58,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
-    'core'
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -70,18 +71,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-CORS_ALLOW_ALL_ORIGINS = True
-
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:5173',
-    'https://bycrib-back-x7zl.onrender.com'
-]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "https://bycrib-back-x7zl.onrender.com"
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -104,41 +93,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internationalization
 LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# MEDIA settings
 MEDIA_ENDPOINT = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 FILE_UPLOAD_PERMISSIONS = 0o640
 
-# Cloudinary & MEDIA configuration
 CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
 
-# Em produção usa Cloudinary, em desenvolvimento usa FileSystemStorage local
 if MODE == 'DEVELOPMENT':
     MY_IP = os.getenv('MY_IP', '127.0.0.1')
     MEDIA_URL = f'http://{MY_IP}:19003/media/'
@@ -147,25 +122,17 @@ else:
     MEDIA_URL = '/media/'
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-SPECTACULAR_SETTINGS = {
-    'TITLE': '<PROJETO> API',
-    'DESCRIPTION': 'API para o projeto <descreva aqui seu projeto>.',
-    'VERSION': '1.0.0',
-}
-
 AUTH_USER_MODEL = 'core.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'app.pagination.CustomPagination',
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    'rest_framework.authentication.SessionAuthentication',
+    'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ),
     'PAGE_SIZE': 10,
 }
@@ -178,5 +145,18 @@ SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("Bearer",),
 }
 
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'ByCrib API',
+    'DESCRIPTION': 'API para o e-commerce ByCrib, com autenticação JWT e integração Cloudinary.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
 
-print(f'{MODE = } \n{MEDIA_URL = } \n{DATABASES = }')
+PASSAGE_APP_ID = os.getenv('PASSAGE_APP_ID', 'app_id')
+PASSAGE_API_KEY = os.getenv('PASSAGE_API_KEY', 'api_key')
+PASSAGE_AUTH_STRATEGY = 2
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+print(f'\n[SETTINGS] MODO={MODE} | DEBUG={DEBUG} | DB={DATABASES["default"]["ENGINE"]}')
+print(f'MEDIA_URL={MEDIA_URL}')

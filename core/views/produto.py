@@ -5,3 +5,4 @@ from core.serializers import ProdutoSerializer
 class ProdutoViewSet(ModelViewSet):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
+    permission_classes = []
