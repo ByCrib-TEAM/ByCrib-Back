@@ -14,7 +14,7 @@ class ItemCarrinhoSerializer(ModelSerializer):
 
     class Meta:
         model = ItemCarrinho
-        fields = ['id', 'produto', 'produto_nome', 'quantidade', 'preco_unitario', 'subtotal']
+        fields = ['id', 'produto', 'produto_id', 'produto_nome', 'quantidade', 'preco_unitario', 'subtotal']
 
     def get_subtotal(self, obj):
         return obj.quantidade * obj.produto.preco

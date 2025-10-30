@@ -1,8 +1,8 @@
 [project]
-name = "livraria"
+name = "ByCrib"
 version = "1.0.0"
-description = "Uma API REST de uma livraria feita com Django e Django REST Framework."
-authors = [{ name = "Marco André Mendes", email = "marcoandre@gmail.com" }]
+description = "API REST do projeto ByCrib"
+authors = [{ name = "Caetano Freitas, João Lino Martins, Lucas Amaya, Pedro Silva", email = "caetanopfreitas@gmail.com" }]
 dependencies = [
   'dj-database-url>=2.1.0',
   'django-cloudinary-storage>=0.3.0',
@@ -56,10 +56,6 @@ format = "ruff format"
 
 [tool.pdm]
 distribution = false
-
-[[tool.pdm.autoexport]]
-filename = "requirements.txt"
-without-hashes = "true"
 
 [tool.ruff]
 line-length = 120
