@@ -5,9 +5,7 @@ from rest_framework.response import Response
 from core.models import Compra, Carrinho
 from core.serializers import CompraSerializer
 
-
 class CompraViewSet(viewsets.ModelViewSet):
-    queryset = Compra.objects.all()
     serializer_class = CompraSerializer
     permission_classes = [IsAuthenticated]
 
@@ -18,7 +16,11 @@ class CompraViewSet(viewsets.ModelViewSet):
         )
 
     def perform_create(self, serializer):
-        carrinho = Carrinho.objects.filter(usuario=self.request.user, finalizado=False).first()
+        carrinho = Carrinho.objects.filter(
+            usuario=self.request.user,
+            finalizado=False
+        ).first()
+
         if not carrinho:
             raise serializers.ValidationError('Nenhum carrinho ativo encontrado.')
 
@@ -27,6 +29,12 @@ class CompraViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['post'])
     def finalizar(self, request, pk=None):
         compra = self.get_object()
+
+        if compra.usuario != request.user:
+            return Response(
+                {'error': 'Você não tem permissão para finalizar esta compra.'},
+                status=status.HTTP_403_FORBIDDEN
+            )
 
         if compra.status != Compra.StatusCompra.CARRINHO:
             return Response(
@@ -37,7 +45,10 @@ class CompraViewSet(viewsets.ModelViewSet):
         try:
             compra.finalizar_compra()
         except ValueError as e:
-            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {'error': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         return Response({
             'status': 'Compra finalizada com sucesso!',
