@@ -2,6 +2,7 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from core.models import Carrinho, ItemCarrinho, Produto
 from core.serializers.produto import ProdutoSerializer
+from decimal import Decimal
 
 class ItemCarrinhoSerializer(ModelSerializer):
     produto = ProdutoSerializer(read_only=True)
@@ -16,7 +17,7 @@ class ItemCarrinhoSerializer(ModelSerializer):
         model = ItemCarrinho
         fields = ['id', 'produto', 'produto_id', 'produto_nome', 'quantidade', 'preco_unitario', 'subtotal']
 
-    def get_subtotal(self, obj):
+    def get_subtotal(self, obj) -> Decimal:
         return obj.quantidade * obj.produto.preco
     
 
@@ -29,5 +30,5 @@ class CarrinhoSerializer(ModelSerializer):
         fields = ['id', 'usuario', 'criado_em', 'atualizado_em', 'finalizado', 'itens', 'total']
         read_only_fields = ['usuario', 'criado_em', 'atualizado_em']
 
-    def get_total(self, obj):
+    def get_total(self, obj) -> Decimal:
         return sum(item.quantidade * item.produto.preco for item in obj.itens.all())
