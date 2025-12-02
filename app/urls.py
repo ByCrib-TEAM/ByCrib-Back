@@ -20,7 +20,7 @@ from core.views import (
     UserViewSet,
     CategoriaViewSet,
     ProdutoViewSet,
-    CarrinhoViewSet,
+    CarrinhoViewSet, 
     ItemCarrinhoViewSet,
     MarcaViewSet,
     CompraViewSet,
