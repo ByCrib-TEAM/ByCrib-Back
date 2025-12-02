@@ -6,27 +6,40 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Determina o modo de execução (DEVELOPMENT ou PRODUCTION)
 MODE = os.getenv('MODE', 'PRODUCTION')
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-if MODE == 'DEVELOPMENT':
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=os.getenv('DATABASE_URL'),
-            conn_max_age=600,
-            conn_health_checks=True,
-        )
+# --- Configuração de Banco de Dados (START) ---
+
+DATABASES = {
+    'default': {} # Inicializa vazio
+}
+
+if MODE == 'PRODUCTION':
+    # Tenta configurar o banco de dados usando a DATABASE_URL
+    db_config = dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
+    # dj_database_url.config() retorna um dict vazio ({}) se o URL for None/vazio
+    if db_config:
+        DATABASES['default'] = db_config
+
+# FALLBACK: Se o modo for DEVELOPMENT OU se a configuração PRODUCTION não for válida
+if MODE == 'DEVELOPMENT' or not DATABASES['default']:
+    print("AVISO: Usando SQLite Local para Desenvolvimento ou Falha de Configuração de URL.")
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 
+# --- Configuração de Banco de Dados (END) ---
+
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure')
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+# Converte a string 'True'/'False' para booleano
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true' 
 ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -156,5 +169,6 @@ SPECTACULAR_SETTINGS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# O print agora é seguro porque sempre haverá uma chave 'ENGINE'
 print(f'\n[SETTINGS] MODO={MODE} | DEBUG={DEBUG} | DB={DATABASES["default"]["ENGINE"]}')
 print(f'MEDIA_URL={MEDIA_URL}')
